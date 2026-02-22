@@ -54,3 +54,10 @@
   margin: 20px;
   padding: 20px;
 }
+
+.filter-btn {
+  padding: 10px;
+  margin: 10px;
+  border: solid black 1px;
+  cursor: pointer;
+}
