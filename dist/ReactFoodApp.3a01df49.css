@@ -1,0 +1,58 @@
+.header {
+  border: 1px solid #000;
+  justify-content: space-between;
+  display: flex;
+}
+
+.logo {
+  width: 120px;
+}
+
+.nav-items {
+  padding: 0 20px;
+}
+
+.nav-items > ul {
+  font-size: 24px;
+  list-style-type: none;
+  display: flex;
+}
+
+.nav-items > ul > li {
+  margin: 10px;
+  padding: 10px;
+}
+
+.Body {
+  background-color: #faebd7;
+  border: 1px solid #000;
+}
+
+.search-bar {
+  justify-content: center;
+  display: flex;
+}
+
+.res-card {
+  cursor: pointer;
+  border: 1px solid #000;
+  width: 200px;
+  margin: 10px;
+}
+
+.res-card:hover {
+  background-color: #d3d3d3;
+  border: 3px solid #000;
+}
+
+.res-card-logo {
+  width: 100%;
+}
+
+.res-container {
+  flex-wrap: wrap;
+  margin: 20px;
+  padding: 20px;
+  display: flex;
+}
+/*# sourceMappingURL=ReactFoodApp.3a01df49.css.map */
