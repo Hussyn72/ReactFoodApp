@@ -17442,7 +17442,11 @@ try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _s = $RefreshSig$();
 const Header = ()=>{
+    _s();
+    const [islogin, setLoginStatus] = (0, _react.useState)("Login");
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "header",
         children: [
@@ -17453,12 +17457,12 @@ const Header = ()=>{
                     src: "https://img.freepik.com/premium-vector/restaurant-logo-design_617585-671.jpg"
                 }, void 0, false, {
                     fileName: "src/Components/Header.js",
-                    lineNumber: 5,
+                    lineNumber: 9,
                     columnNumber: 9
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/Components/Header.js",
-                lineNumber: 4,
+                lineNumber: 8,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -17469,62 +17473,68 @@ const Header = ()=>{
                             children: "Home"
                         }, void 0, false, {
                             fileName: "src/Components/Header.js",
-                            lineNumber: 12,
+                            lineNumber: 16,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
                             children: "About"
                         }, void 0, false, {
                             fileName: "src/Components/Header.js",
-                            lineNumber: 13,
+                            lineNumber: 17,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
                             children: "Contact"
                         }, void 0, false, {
                             fileName: "src/Components/Header.js",
-                            lineNumber: 14,
+                            lineNumber: 18,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
                             children: "Cart"
                         }, void 0, false, {
                             fileName: "src/Components/Header.js",
-                            lineNumber: 15,
+                            lineNumber: 19,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
                             className: "login-btn",
                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                                children: " Login "
+                                onClick: ()=>{
+                                    console.log("Login Button clicked");
+                                    const loginStatus = islogin == "Login" ? "Logout" : "Login";
+                                    setLoginStatus(loginStatus);
+                                },
+                                children: islogin
                             }, void 0, false, {
                                 fileName: "src/Components/Header.js",
-                                lineNumber: 17,
+                                lineNumber: 21,
                                 columnNumber: 13
                             }, undefined)
                         }, void 0, false, {
                             fileName: "src/Components/Header.js",
-                            lineNumber: 16,
+                            lineNumber: 20,
                             columnNumber: 11
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/Components/Header.js",
-                    lineNumber: 11,
+                    lineNumber: 15,
                     columnNumber: 9
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/Components/Header.js",
-                lineNumber: 10,
+                lineNumber: 14,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/Components/Header.js",
-        lineNumber: 3,
+        lineNumber: 7,
         columnNumber: 5
     }, undefined);
 };
+_s(Header, "kLvhrvER/AN3z5bzholLee/TGbY=");
 _c = Header;
 exports.default = Header;
 var _c;
@@ -17535,7 +17545,7 @@ $RefreshReg$(_c, "Header");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"jnFvT":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"jnFvT":[function(require,module,exports,__globalThis) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -19859,15 +19869,53 @@ var _restaurantcardDefault = parcelHelpers.interopDefault(_restaurantcard);
 var _mockdata = require("../utils/mockdata");
 var _mockdataDefault = parcelHelpers.interopDefault(_mockdata);
 var _react = require("react");
+var _shimmerUI = require("./ShimmerUI");
+var _shimmerUIDefault = parcelHelpers.interopDefault(_shimmerUI);
 var _s = $RefreshSig$();
 const Body = ()=>{
     _s();
     //useState Hook use to update the UI of the component whenever the local variable changes it re-render the component.
     //state variable
-    const [listOfRestaurants, setFilteredListOfRestaurants] = (0, _react.useState)((0, _mockdataDefault.default));
+    const [listOfRestaurants, setFilteredListOfRestaurants] = (0, _react.useState)([]); //earlier we were passing here resList but after passing the limitedProduct to setFilterLis function its taking automatically.
     //normal variable
     //let ListofRestaurants = [];
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+    //second Hook useEffect. takes 2 arguments 1st argument is arrow function second is dependency array.
+    //the callback function of this use effect is called after body/Components gets renedered.
+    (0, _react.useEffect)(()=>{
+        console.log("Use Effect Hook called");
+        fetchData();
+    }, []);
+    const fetchData = async ()=>{
+        //API call it returns a promise
+        const data = await fetch("https://www.ovenstory.in/v1/api/get_all_products/brand_id/21/store_id/10240/source_id/10");
+        //console.log(data);
+        //converting data into json
+        const json = await data.json();
+        //console.log(json);
+        //console.log(json);
+        //console.log(json.data.collections);
+        //console.log(json.collections[0]);
+        //console.log(json.collections[0].products);
+        //console.log(json.data.collections[0].products[0]);
+        console.log(json?.data?.collections?.[0]?.products?.[0]); //optional chainnig
+        const collections = json.data.collections; //array of object
+        //const apiData = collections.map((collection) => collection.products); // this will returnt the array of products.
+        const allProduct = collections.flatMap((collection)=>collection.products);
+        //const productsArray = apiData.map((products) => products);
+        console.log(allProduct);
+        const limitedProducts = allProduct.slice(20, 40);
+        console.log(limitedProducts);
+        setFilteredListOfRestaurants(limitedProducts);
+    };
+    // console.log("Body Rendered");
+    // if (listOfRestaurants.length === 0) {//rendering a component like this on condition - this is known as conditional rendering.
+    //   return <ShimmerUI />;
+    // }
+    return listOfRestaurants.length === 0 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _shimmerUIDefault.default), {}, void 0, false, {
+        fileName: "src/Components/Body.js",
+        lineNumber: 53,
+        columnNumber: 5
+    }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "Body",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -19878,35 +19926,35 @@ const Body = ()=>{
                         placeholder: "search restaurants"
                     }, void 0, false, {
                         fileName: "src/Components/Body.js",
-                        lineNumber: 15,
+                        lineNumber: 57,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                         children: "Search"
                     }, void 0, false, {
                         fileName: "src/Components/Body.js",
-                        lineNumber: 16,
+                        lineNumber: 58,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/Components/Body.js",
-                lineNumber: 14,
+                lineNumber: 56,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                 className: "filter-btn",
                 onClick: ()=>{
                     //it takes the callback function.
-                    console.log("Button Clicked");
+                    //console.log("Button Clicked");
                     const topRatedRestaurant = (0, _mockdataDefault.default).filter((resaturant)=>resaturant.rating > 4);
-                    console.log("Top Rated Restaurants -> ", topRatedRestaurant);
+                    //console.log("Top Rated Restaurants -> ", topRatedRestaurant);
                     setFilteredListOfRestaurants(topRatedRestaurant);
                 },
                 children: "Top Rated Restaurants"
             }, void 0, false, {
                 fileName: "src/Components/Body.js",
-                lineNumber: 19,
+                lineNumber: 61,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -19915,22 +19963,22 @@ const Body = ()=>{
                         resData: restaurant
                     }, restaurant.product_id, false, {
                         fileName: "src/Components/Body.js",
-                        lineNumber: 36,
+                        lineNumber: 78,
                         columnNumber: 11
                     }, undefined))
             }, void 0, false, {
                 fileName: "src/Components/Body.js",
-                lineNumber: 34,
+                lineNumber: 76,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/Components/Body.js",
-        lineNumber: 13,
+        lineNumber: 55,
         columnNumber: 5
     }, undefined);
 };
-_s(Body, "5k36inZrMbgRwY7nsk98bsccWiw=");
+_s(Body, "lNRjgQctc3Ch2BOzwjmb5T43A50=");
 _c = Body;
 exports.default = Body;
 var _c;
@@ -19941,7 +19989,7 @@ $RefreshReg$(_c, "Body");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","./Restaurantcard":"cbqt9","../utils/mockdata":"1r8tT","react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"cbqt9":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","./Restaurantcard":"cbqt9","../utils/mockdata":"1r8tT","react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","./ShimmerUI":"bLFEv"}],"cbqt9":[function(require,module,exports,__globalThis) {
 var $parcel$ReactRefreshHelpers$5caf = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 $parcel$ReactRefreshHelpers$5caf.init();
 var prevRefreshReg = globalThis.$RefreshReg$;
@@ -20477,6 +20525,59 @@ const resObj = [
 ];
 exports.default = resObj;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}]},["icAAj","blcJa"], "blcJa", "parcelRequired526", {}, null, null, "http://localhost:1234")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"bLFEv":[function(require,module,exports,__globalThis) {
+var $parcel$ReactRefreshHelpers$6cc8 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+$parcel$ReactRefreshHelpers$6cc8.init();
+var prevRefreshReg = globalThis.$RefreshReg$;
+var prevRefreshSig = globalThis.$RefreshSig$;
+$parcel$ReactRefreshHelpers$6cc8.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+const ShimmerUI = ()=>{
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "shimmer-container",
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "shimmer-card"
+            }, void 0, false, {
+                fileName: "src/Components/ShimmerUI.js",
+                lineNumber: 4,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "shimmer-card"
+            }, void 0, false, {
+                fileName: "src/Components/ShimmerUI.js",
+                lineNumber: 5,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "shimmer-card"
+            }, void 0, false, {
+                fileName: "src/Components/ShimmerUI.js",
+                lineNumber: 6,
+                columnNumber: 7
+            }, undefined)
+        ]
+    }, void 0, true, {
+        fileName: "src/Components/ShimmerUI.js",
+        lineNumber: 3,
+        columnNumber: 5
+    }, undefined);
+};
+_c = ShimmerUI;
+exports.default = ShimmerUI;
+var _c;
+$RefreshReg$(_c, "ShimmerUI");
+
+  $parcel$ReactRefreshHelpers$6cc8.postlude(module);
+} finally {
+  globalThis.$RefreshReg$ = prevRefreshReg;
+  globalThis.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"dVPUn","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}]},["icAAj","blcJa"], "blcJa", "parcelRequired526", {}, null, null, "http://localhost:1234")
 
 //# sourceMappingURL=ReactFoodApp.cb65f72e.js.map

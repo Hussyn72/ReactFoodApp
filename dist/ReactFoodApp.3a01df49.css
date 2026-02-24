@@ -62,4 +62,19 @@
   margin: 10px;
   padding: 10px;
 }
+
+.shimmer-container {
+  flex-wrap: wrap;
+  margin: 20px;
+  padding: 20px;
+  display: flex;
+}
+
+.shimmer-card {
+  background-color: #d3d3d3;
+  width: 200px;
+  height: 250px;
+  margin: 20px;
+  animation: 1s linear infinite shimmer;
+}
 /*# sourceMappingURL=ReactFoodApp.3a01df49.css.map */

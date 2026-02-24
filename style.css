@@ -61,3 +61,21 @@
   border: solid black 1px;
   cursor: pointer;
 }
+/* .shimmer-container {
+  display: flex;
+} */
+
+.shimmer-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px;
+  padding: 20px;
+}
+
+.shimmer-card {
+  width: 200px;
+  height: 250px;
+  background-color: lightgray;
+  margin: 20px;
+  animation: shimmer 1s linear infinite;
+}
