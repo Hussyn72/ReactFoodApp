@@ -2,6 +2,7 @@ import RestaurantCard from "./Restaurantcard";
 import resList from "../utils/mockdata";
 import { useEffect, useState } from "react";
 import ShimmerUI from "./ShimmerUI";
+import Counter from "./Counter";
 
 const Body = () => {
   //useState Hook use to update the UI of the component whenever the local variable changes it re-render the component.
@@ -9,6 +10,7 @@ const Body = () => {
   const [listOfRestaurants, setFilteredListOfRestaurants] = useState([]); //earlier we were passing here resList but after passing the limitedProduct to setFilterLis function its taking automatically.
   //normal variable
   //let ListofRestaurants = [];
+  const [listOfAllProducts, setlistOfAllProducts] = useState();
 
   //second Hook useEffect. takes 2 arguments 1st argument is arrow function second is dependency array.
   //the callback function of this use effect is called after body/Components gets renedered.
@@ -41,6 +43,7 @@ const Body = () => {
     const limitedProducts = allProduct.slice(20, 40);
     console.log(limitedProducts);
     setFilteredListOfRestaurants(limitedProducts);
+    setlistOfAllProducts(limitedProducts);
   };
 
   // console.log("Body Rendered");
@@ -63,7 +66,7 @@ const Body = () => {
         onClick={() => {
           //it takes the callback function.
           //console.log("Button Clicked");
-          const topRatedRestaurant = resList.filter(
+          const topRatedRestaurant = listOfAllProducts.filter(
             (resaturant) => resaturant.rating > 4,
           );
           //console.log("Top Rated Restaurants -> ", topRatedRestaurant);

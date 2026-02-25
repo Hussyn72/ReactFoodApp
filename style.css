@@ -79,3 +79,19 @@
   margin: 20px;
   animation: shimmer 1s linear infinite;
 }
+
+.increment-btn {
+  padding: 10px;
+  margin: 10px;
+  background-color: rgb(136, 214, 20);
+  border: solid green 2px;
+  cursor: pointer;
+}
+
+.decrement-btn {
+  padding: 10px;
+  margin: 10px;
+  background-color: rgb(235, 97, 97);
+  border: solid red 2px;
+  cursor: pointer;
+}

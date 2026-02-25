@@ -19871,6 +19871,8 @@ var _mockdataDefault = parcelHelpers.interopDefault(_mockdata);
 var _react = require("react");
 var _shimmerUI = require("./ShimmerUI");
 var _shimmerUIDefault = parcelHelpers.interopDefault(_shimmerUI);
+var _counter = require("./Counter");
+var _counterDefault = parcelHelpers.interopDefault(_counter);
 var _s = $RefreshSig$();
 const Body = ()=>{
     _s();
@@ -19879,6 +19881,7 @@ const Body = ()=>{
     const [listOfRestaurants, setFilteredListOfRestaurants] = (0, _react.useState)([]); //earlier we were passing here resList but after passing the limitedProduct to setFilterLis function its taking automatically.
     //normal variable
     //let ListofRestaurants = [];
+    const [listOfAllProducts, setlistOfAllProducts] = (0, _react.useState)();
     //second Hook useEffect. takes 2 arguments 1st argument is arrow function second is dependency array.
     //the callback function of this use effect is called after body/Components gets renedered.
     (0, _react.useEffect)(()=>{
@@ -19906,6 +19909,7 @@ const Body = ()=>{
         const limitedProducts = allProduct.slice(20, 40);
         console.log(limitedProducts);
         setFilteredListOfRestaurants(limitedProducts);
+        setlistOfAllProducts(limitedProducts);
     };
     // console.log("Body Rendered");
     // if (listOfRestaurants.length === 0) {//rendering a component like this on condition - this is known as conditional rendering.
@@ -19913,7 +19917,7 @@ const Body = ()=>{
     // }
     return listOfRestaurants.length === 0 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _shimmerUIDefault.default), {}, void 0, false, {
         fileName: "src/Components/Body.js",
-        lineNumber: 53,
+        lineNumber: 56,
         columnNumber: 5
     }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "Body",
@@ -19926,20 +19930,20 @@ const Body = ()=>{
                         placeholder: "search restaurants"
                     }, void 0, false, {
                         fileName: "src/Components/Body.js",
-                        lineNumber: 57,
+                        lineNumber: 60,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                         children: "Search"
                     }, void 0, false, {
                         fileName: "src/Components/Body.js",
-                        lineNumber: 58,
+                        lineNumber: 61,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/Components/Body.js",
-                lineNumber: 56,
+                lineNumber: 59,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -19947,14 +19951,14 @@ const Body = ()=>{
                 onClick: ()=>{
                     //it takes the callback function.
                     //console.log("Button Clicked");
-                    const topRatedRestaurant = (0, _mockdataDefault.default).filter((resaturant)=>resaturant.rating > 4);
+                    const topRatedRestaurant = listOfAllProducts.filter((resaturant)=>resaturant.rating > 4);
                     //console.log("Top Rated Restaurants -> ", topRatedRestaurant);
                     setFilteredListOfRestaurants(topRatedRestaurant);
                 },
                 children: "Top Rated Restaurants"
             }, void 0, false, {
                 fileName: "src/Components/Body.js",
-                lineNumber: 61,
+                lineNumber: 64,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -19963,22 +19967,22 @@ const Body = ()=>{
                         resData: restaurant
                     }, restaurant.product_id, false, {
                         fileName: "src/Components/Body.js",
-                        lineNumber: 78,
+                        lineNumber: 81,
                         columnNumber: 11
                     }, undefined))
             }, void 0, false, {
                 fileName: "src/Components/Body.js",
-                lineNumber: 76,
+                lineNumber: 79,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/Components/Body.js",
-        lineNumber: 55,
+        lineNumber: 58,
         columnNumber: 5
     }, undefined);
 };
-_s(Body, "lNRjgQctc3Ch2BOzwjmb5T43A50=");
+_s(Body, "pwmtVXs1wpcQ/9YxuCqMpyNlmCs=");
 _c = Body;
 exports.default = Body;
 var _c;
@@ -19989,7 +19993,7 @@ $RefreshReg$(_c, "Body");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","./Restaurantcard":"cbqt9","../utils/mockdata":"1r8tT","react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","./ShimmerUI":"bLFEv"}],"cbqt9":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","./Restaurantcard":"cbqt9","../utils/mockdata":"1r8tT","react":"jMk1U","./ShimmerUI":"bLFEv","./Counter":"f3qHG","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"cbqt9":[function(require,module,exports,__globalThis) {
 var $parcel$ReactRefreshHelpers$5caf = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 $parcel$ReactRefreshHelpers$5caf.init();
 var prevRefreshReg = globalThis.$RefreshReg$;
@@ -20578,6 +20582,81 @@ $RefreshReg$(_c, "ShimmerUI");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}]},["icAAj","blcJa"], "blcJa", "parcelRequired526", {}, null, null, "http://localhost:1234")
+},{"react/jsx-dev-runtime":"dVPUn","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"f3qHG":[function(require,module,exports,__globalThis) {
+var $parcel$ReactRefreshHelpers$b654 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+$parcel$ReactRefreshHelpers$b654.init();
+var prevRefreshReg = globalThis.$RefreshReg$;
+var prevRefreshSig = globalThis.$RefreshSig$;
+$parcel$ReactRefreshHelpers$b654.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _s = $RefreshSig$();
+const Counter = ()=>{
+    _s();
+    const [count, setCount] = (0, _react.useState)(0);
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("center", {
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            className: "counter",
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                    children: count
+                }, void 0, false, {
+                    fileName: "src/Components/Counter.js",
+                    lineNumber: 8,
+                    columnNumber: 9
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                    className: "increment-btn",
+                    onClick: ()=>{
+                        let increment = count + 1;
+                        setCount(increment);
+                    },
+                    children: "Increament"
+                }, void 0, false, {
+                    fileName: "src/Components/Counter.js",
+                    lineNumber: 9,
+                    columnNumber: 9
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                    className: "decrement-btn",
+                    onClick: ()=>{
+                        if (count === 0) return;
+                        let Decrement = count - 1;
+                        setCount(Decrement);
+                    },
+                    children: "Decreament"
+                }, void 0, false, {
+                    fileName: "src/Components/Counter.js",
+                    lineNumber: 18,
+                    columnNumber: 9
+                }, undefined)
+            ]
+        }, void 0, true, {
+            fileName: "src/Components/Counter.js",
+            lineNumber: 7,
+            columnNumber: 7
+        }, undefined)
+    }, void 0, false, {
+        fileName: "src/Components/Counter.js",
+        lineNumber: 6,
+        columnNumber: 5
+    }, undefined);
+};
+_s(Counter, "oDgYfYHkD9Wkv4hrAPCkI/ev3YU=");
+_c = Counter;
+exports.default = Counter;
+var _c;
+$RefreshReg$(_c, "Counter");
+
+  $parcel$ReactRefreshHelpers$b654.postlude(module);
+} finally {
+  globalThis.$RefreshReg$ = prevRefreshReg;
+  globalThis.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}]},["icAAj","blcJa"], "blcJa", "parcelRequired526", {}, null, null, "http://localhost:1234")
 
 //# sourceMappingURL=ReactFoodApp.cb65f72e.js.map
