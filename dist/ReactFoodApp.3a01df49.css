@@ -35,6 +35,7 @@
 
 .res-card {
   cursor: pointer;
+  background-color: #f1b77d;
   border: 1px solid #000;
   width: 200px;
   margin: 10px;
@@ -90,6 +91,27 @@
   cursor: pointer;
   background-color: #eb6161;
   border: 2px solid red;
+  margin: 10px;
+  padding: 10px;
+}
+
+.search-bar {
+  justify-content: center;
+  margin: 20px;
+  display: flex;
+}
+
+.search-btn {
+  cursor: pointer;
+  background-color: #88d614;
+  border: 1px solid green;
+  margin: 10px;
+  padding: 10px;
+}
+
+.search-bax-textbox {
+  border: 1px solid #000;
+  width: 80%;
   margin: 10px;
   padding: 10px;
 }

@@ -19882,6 +19882,8 @@ const Body = ()=>{
     //normal variable
     //let ListofRestaurants = [];
     const [listOfAllProducts, setlistOfAllProducts] = (0, _react.useState)();
+    //search Bar
+    const [searchText, setSearchText] = (0, _react.useState)("");
     //second Hook useEffect. takes 2 arguments 1st argument is arrow function second is dependency array.
     //the callback function of this use effect is called after body/Components gets renedered.
     (0, _react.useEffect)(()=>{
@@ -19911,54 +19913,82 @@ const Body = ()=>{
         setFilteredListOfRestaurants(limitedProducts);
         setlistOfAllProducts(limitedProducts);
     };
-    // console.log("Body Rendered");
+    //whenever state variable update, react triggers a reconciliation cycle(re-renders the components).
+    console.log("Body Rendered");
     // if (listOfRestaurants.length === 0) {//rendering a component like this on condition - this is known as conditional rendering.
     //   return <ShimmerUI />;
     // }
     return listOfRestaurants.length === 0 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _shimmerUIDefault.default), {}, void 0, false, {
         fileName: "src/Components/Body.js",
-        lineNumber: 56,
+        lineNumber: 60,
         columnNumber: 5
     }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "Body",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "search-bar",
+                className: "filter",
                 children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                        type: "text",
-                        placeholder: "search restaurants"
-                    }, void 0, false, {
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "search-bar",
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                className: "search-bax-textbox",
+                                type: "text",
+                                placeholder: "search restaurants",
+                                //binding the search text to this input box
+                                value: searchText,
+                                //input box will not change unless we change the searchtext because its a state variable.
+                                //whenever you change the local state variable react re-renders the component
+                                onChange: (e)=>{
+                                    setSearchText(e.target.value);
+                                }
+                            }, void 0, false, {
+                                fileName: "src/Components/Body.js",
+                                lineNumber: 65,
+                                columnNumber: 11
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                className: "search-btn",
+                                onClick: ()=>{
+                                    //filter the restaurant cards and filter the UI
+                                    console.log(searchText);
+                                    const searchedText = listOfAllProducts.filter((restaurant)=>{
+                                        return restaurant.product_name.toLowerCase().includes(searchText.toLowerCase());
+                                    });
+                                    console.log(searchedText);
+                                    setFilteredListOfRestaurants(searchedText);
+                                },
+                                children: "Search"
+                            }, void 0, false, {
+                                fileName: "src/Components/Body.js",
+                                lineNumber: 77,
+                                columnNumber: 11
+                            }, undefined)
+                        ]
+                    }, void 0, true, {
                         fileName: "src/Components/Body.js",
-                        lineNumber: 60,
+                        lineNumber: 64,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                        children: "Search"
+                        className: "filter-btn",
+                        onClick: ()=>{
+                            //it takes the callback function.
+                            //console.log("Button Clicked");
+                            const topRatedRestaurant = listOfAllProducts.filter((resaturant)=>resaturant.rating > 4).sort((a, b)=>b.rating - a.rating);
+                            //console.log("Top Rated Restaurants -> ", topRatedRestaurant);
+                            setFilteredListOfRestaurants(topRatedRestaurant);
+                        },
+                        children: "Top Rated Restaurants"
                     }, void 0, false, {
                         fileName: "src/Components/Body.js",
-                        lineNumber: 61,
+                        lineNumber: 95,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/Components/Body.js",
-                lineNumber: 59,
-                columnNumber: 7
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                className: "filter-btn",
-                onClick: ()=>{
-                    //it takes the callback function.
-                    //console.log("Button Clicked");
-                    const topRatedRestaurant = listOfAllProducts.filter((resaturant)=>resaturant.rating > 4);
-                    //console.log("Top Rated Restaurants -> ", topRatedRestaurant);
-                    setFilteredListOfRestaurants(topRatedRestaurant);
-                },
-                children: "Top Rated Restaurants"
-            }, void 0, false, {
-                fileName: "src/Components/Body.js",
-                lineNumber: 64,
+                lineNumber: 63,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -19967,22 +19997,22 @@ const Body = ()=>{
                         resData: restaurant
                     }, restaurant.product_id, false, {
                         fileName: "src/Components/Body.js",
-                        lineNumber: 81,
+                        lineNumber: 113,
                         columnNumber: 11
                     }, undefined))
             }, void 0, false, {
                 fileName: "src/Components/Body.js",
-                lineNumber: 79,
+                lineNumber: 111,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/Components/Body.js",
-        lineNumber: 58,
+        lineNumber: 62,
         columnNumber: 5
     }, undefined);
 };
-_s(Body, "pwmtVXs1wpcQ/9YxuCqMpyNlmCs=");
+_s(Body, "vkWvK7tkNiAplNfwq4D4FrNzcoo=");
 _c = Body;
 exports.default = Body;
 var _c;
@@ -20563,6 +20593,153 @@ const ShimmerUI = ()=>{
             }, void 0, false, {
                 fileName: "src/Components/ShimmerUI.js",
                 lineNumber: 6,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "shimmer-card"
+            }, void 0, false, {
+                fileName: "src/Components/ShimmerUI.js",
+                lineNumber: 7,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "shimmer-card"
+            }, void 0, false, {
+                fileName: "src/Components/ShimmerUI.js",
+                lineNumber: 8,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "shimmer-card"
+            }, void 0, false, {
+                fileName: "src/Components/ShimmerUI.js",
+                lineNumber: 9,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "shimmer-card"
+            }, void 0, false, {
+                fileName: "src/Components/ShimmerUI.js",
+                lineNumber: 10,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "shimmer-card"
+            }, void 0, false, {
+                fileName: "src/Components/ShimmerUI.js",
+                lineNumber: 11,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "shimmer-card"
+            }, void 0, false, {
+                fileName: "src/Components/ShimmerUI.js",
+                lineNumber: 12,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "shimmer-card"
+            }, void 0, false, {
+                fileName: "src/Components/ShimmerUI.js",
+                lineNumber: 13,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "shimmer-card"
+            }, void 0, false, {
+                fileName: "src/Components/ShimmerUI.js",
+                lineNumber: 14,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "shimmer-card"
+            }, void 0, false, {
+                fileName: "src/Components/ShimmerUI.js",
+                lineNumber: 15,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "shimmer-card"
+            }, void 0, false, {
+                fileName: "src/Components/ShimmerUI.js",
+                lineNumber: 16,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "shimmer-card"
+            }, void 0, false, {
+                fileName: "src/Components/ShimmerUI.js",
+                lineNumber: 17,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "shimmer-card"
+            }, void 0, false, {
+                fileName: "src/Components/ShimmerUI.js",
+                lineNumber: 18,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "shimmer-card"
+            }, void 0, false, {
+                fileName: "src/Components/ShimmerUI.js",
+                lineNumber: 19,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "shimmer-card"
+            }, void 0, false, {
+                fileName: "src/Components/ShimmerUI.js",
+                lineNumber: 20,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "shimmer-card"
+            }, void 0, false, {
+                fileName: "src/Components/ShimmerUI.js",
+                lineNumber: 21,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "shimmer-card"
+            }, void 0, false, {
+                fileName: "src/Components/ShimmerUI.js",
+                lineNumber: 22,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "shimmer-card"
+            }, void 0, false, {
+                fileName: "src/Components/ShimmerUI.js",
+                lineNumber: 23,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "shimmer-card"
+            }, void 0, false, {
+                fileName: "src/Components/ShimmerUI.js",
+                lineNumber: 24,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "shimmer-card"
+            }, void 0, false, {
+                fileName: "src/Components/ShimmerUI.js",
+                lineNumber: 25,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "shimmer-card"
+            }, void 0, false, {
+                fileName: "src/Components/ShimmerUI.js",
+                lineNumber: 26,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "shimmer-card"
+            }, void 0, false, {
+                fileName: "src/Components/ShimmerUI.js",
+                lineNumber: 27,
                 columnNumber: 7
             }, undefined)
         ]

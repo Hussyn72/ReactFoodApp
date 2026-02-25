@@ -12,6 +12,9 @@ const Body = () => {
   //let ListofRestaurants = [];
   const [listOfAllProducts, setlistOfAllProducts] = useState();
 
+  //search Bar
+  const [searchText, setSearchText] = useState("");
+
   //second Hook useEffect. takes 2 arguments 1st argument is arrow function second is dependency array.
   //the callback function of this use effect is called after body/Components gets renedered.
   useEffect(() => {
@@ -46,7 +49,8 @@ const Body = () => {
     setlistOfAllProducts(limitedProducts);
   };
 
-  // console.log("Body Rendered");
+  //whenever state variable update, react triggers a reconciliation cycle(re-renders the components).
+  console.log("Body Rendered");
 
   // if (listOfRestaurants.length === 0) {//rendering a component like this on condition - this is known as conditional rendering.
   //   return <ShimmerUI />;
@@ -56,25 +60,53 @@ const Body = () => {
     <ShimmerUI />
   ) : (
     <div className="Body">
-      <div className="search-bar">
-        <input type="text" placeholder="search restaurants"></input>
-        <button>Search</button>
-      </div>
+      <div className="filter">
+        <div className="search-bar">
+          <input
+            className="search-bax-textbox"
+            type="text"
+            placeholder="search restaurants"
+            //binding the search text to this input box
+            value={searchText}
+            //input box will not change unless we change the searchtext because its a state variable.
+            //whenever you change the local state variable react re-renders the component
+            onChange={(e) => {
+              setSearchText(e.target.value);
+            }}
+          ></input>
+          <button
+            className="search-btn"
+            onClick={() => {
+              //filter the restaurant cards and filter the UI
+              console.log(searchText);
+              const searchedText = listOfAllProducts.filter((restaurant) => {
+                return restaurant.product_name
+                  .toLowerCase()
+                  .includes(searchText.toLowerCase());
+              });
+              console.log(searchedText);
+              setFilteredListOfRestaurants(searchedText);
+            }}
+          >
+            Search
+          </button>
+        </div>
 
-      <button
-        className="filter-btn"
-        onClick={() => {
-          //it takes the callback function.
-          //console.log("Button Clicked");
-          const topRatedRestaurant = listOfAllProducts.filter(
-            (resaturant) => resaturant.rating > 4,
-          );
-          //console.log("Top Rated Restaurants -> ", topRatedRestaurant);
-          setFilteredListOfRestaurants(topRatedRestaurant);
-        }}
-      >
-        Top Rated Restaurants
-      </button>
+        <button
+          className="filter-btn"
+          onClick={() => {
+            //it takes the callback function.
+            //console.log("Button Clicked");
+            const topRatedRestaurant = listOfAllProducts
+              .filter((resaturant) => resaturant.rating > 4)
+              .sort((a, b) => b.rating - a.rating);
+            //console.log("Top Rated Restaurants -> ", topRatedRestaurant);
+            setFilteredListOfRestaurants(topRatedRestaurant);
+          }}
+        >
+          Top Rated Restaurants
+        </button>
+      </div>
 
       <div className="res-container">
         {listOfRestaurants.map((restaurant) => (

@@ -37,6 +37,7 @@
   width: 200px;
   cursor: pointer;
   margin: 10px 10px;
+  background-color: rgb(241, 183, 125);
 }
 
 .res-card:hover {
@@ -95,3 +96,28 @@
   border: solid red 2px;
   cursor: pointer;
 }
+
+.search-bar {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+
+.search-btn {
+  padding: 10px;
+  margin: 10px;
+  background-color: rgb(136, 214, 20);
+  border: solid green 1px;
+  cursor: pointer;
+}
+
+.search-bax-textbox {
+  width: 80%;
+  padding: 10px;
+  margin: 10px;
+  border: solid black 1px;
+}
+
+/* .filter {
+  display: flex;
+} */
