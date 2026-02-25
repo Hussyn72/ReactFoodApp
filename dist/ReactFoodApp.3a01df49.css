@@ -115,4 +115,39 @@
   margin: 10px;
   padding: 10px;
 }
+
+.footer {
+  border: 1px solid #000;
+  justify-content: space-evenly;
+  display: flex;
+}
+
+.footer > ul {
+  padding: 0 20px;
+  font-size: 24px;
+  list-style-type: none;
+  display: flex;
+}
+
+.quick-links {
+  justify-content: space-evenly;
+}
+
+.quick-links > ul > li {
+  cursor: pointer;
+  align-items: center;
+  margin: 10px;
+  list-style-type: none;
+}
+
+.social-links {
+  justify-content: space-evenly;
+}
+
+.social-links > ul > li {
+  cursor: pointer;
+  margin: 10px;
+  list-style-type: none;
+  display: inline;
+}
 /*# sourceMappingURL=ReactFoodApp.3a01df49.css.map */
