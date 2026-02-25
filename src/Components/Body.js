@@ -3,6 +3,7 @@ import resList from "../utils/mockdata";
 import { useEffect, useState } from "react";
 import ShimmerUI from "./ShimmerUI";
 import Counter from "./Counter";
+import CounterTwo from "./Counter2";
 
 const Body = () => {
   //useState Hook use to update the UI of the component whenever the local variable changes it re-render the component.

@@ -19880,6 +19880,8 @@ var _shimmerUI = require("./ShimmerUI");
 var _shimmerUIDefault = parcelHelpers.interopDefault(_shimmerUI);
 var _counter = require("./Counter");
 var _counterDefault = parcelHelpers.interopDefault(_counter);
+var _counter2 = require("./Counter2");
+var _counter2Default = parcelHelpers.interopDefault(_counter2);
 var _s = $RefreshSig$();
 const Body = ()=>{
     _s();
@@ -19927,7 +19929,7 @@ const Body = ()=>{
     // }
     return listOfRestaurants.length === 0 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _shimmerUIDefault.default), {}, void 0, false, {
         fileName: "src/Components/Body.js",
-        lineNumber: 60,
+        lineNumber: 61,
         columnNumber: 5
     }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "Body",
@@ -19951,7 +19953,7 @@ const Body = ()=>{
                                 }
                             }, void 0, false, {
                                 fileName: "src/Components/Body.js",
-                                lineNumber: 65,
+                                lineNumber: 66,
                                 columnNumber: 11
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -19968,13 +19970,13 @@ const Body = ()=>{
                                 children: "Search"
                             }, void 0, false, {
                                 fileName: "src/Components/Body.js",
-                                lineNumber: 77,
+                                lineNumber: 78,
                                 columnNumber: 11
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/Components/Body.js",
-                        lineNumber: 64,
+                        lineNumber: 65,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -19989,13 +19991,13 @@ const Body = ()=>{
                         children: "Top Rated Restaurants"
                     }, void 0, false, {
                         fileName: "src/Components/Body.js",
-                        lineNumber: 95,
+                        lineNumber: 96,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/Components/Body.js",
-                lineNumber: 63,
+                lineNumber: 64,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -20004,18 +20006,18 @@ const Body = ()=>{
                         resData: restaurant
                     }, restaurant.product_id, false, {
                         fileName: "src/Components/Body.js",
-                        lineNumber: 113,
+                        lineNumber: 114,
                         columnNumber: 11
                     }, undefined))
             }, void 0, false, {
                 fileName: "src/Components/Body.js",
-                lineNumber: 111,
+                lineNumber: 112,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/Components/Body.js",
-        lineNumber: 62,
+        lineNumber: 63,
         columnNumber: 5
     }, undefined);
 };
@@ -20030,7 +20032,7 @@ $RefreshReg$(_c, "Body");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","./Restaurantcard":"cbqt9","../utils/mockdata":"1r8tT","react":"jMk1U","./ShimmerUI":"bLFEv","./Counter":"f3qHG","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"cbqt9":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","./Restaurantcard":"cbqt9","../utils/mockdata":"1r8tT","react":"jMk1U","./ShimmerUI":"bLFEv","./Counter":"f3qHG","./Counter2":"2cJaJ","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"cbqt9":[function(require,module,exports,__globalThis) {
 var $parcel$ReactRefreshHelpers$5caf = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 $parcel$ReactRefreshHelpers$5caf.init();
 var prevRefreshReg = globalThis.$RefreshReg$;
@@ -20837,6 +20839,80 @@ var _c;
 $RefreshReg$(_c, "Counter");
 
   $parcel$ReactRefreshHelpers$b654.postlude(module);
+} finally {
+  globalThis.$RefreshReg$ = prevRefreshReg;
+  globalThis.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"2cJaJ":[function(require,module,exports,__globalThis) {
+var $parcel$ReactRefreshHelpers$2117 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+$parcel$ReactRefreshHelpers$2117.init();
+var prevRefreshReg = globalThis.$RefreshReg$;
+var prevRefreshSig = globalThis.$RefreshSig$;
+$parcel$ReactRefreshHelpers$2117.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _s = $RefreshSig$();
+const CounterTwo = ()=>{
+    _s();
+    const [count, setCount] = (0, _react.useState)(0);
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "countertwo",
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                children: "Counter App"
+            }, void 0, false, {
+                fileName: "src/Components/Counter2.js",
+                lineNumber: 7,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                children: count
+            }, void 0, false, {
+                fileName: "src/Components/Counter2.js",
+                lineNumber: 8,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                onClick: ()=>{
+                    let increment = count + 1;
+                    setCount(increment);
+                },
+                children: "Increament"
+            }, void 0, false, {
+                fileName: "src/Components/Counter2.js",
+                lineNumber: 9,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                onClick: ()=>{
+                    if (count === 0) return;
+                    let decrement = count - 1;
+                    setCount(decrement);
+                },
+                children: "Decreament"
+            }, void 0, false, {
+                fileName: "src/Components/Counter2.js",
+                lineNumber: 17,
+                columnNumber: 7
+            }, undefined)
+        ]
+    }, void 0, true, {
+        fileName: "src/Components/Counter2.js",
+        lineNumber: 6,
+        columnNumber: 5
+    }, undefined);
+};
+_s(CounterTwo, "oDgYfYHkD9Wkv4hrAPCkI/ev3YU=");
+_c = CounterTwo;
+exports.default = CounterTwo;
+var _c;
+$RefreshReg$(_c, "CounterTwo");
+
+  $parcel$ReactRefreshHelpers$2117.postlude(module);
 } finally {
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
